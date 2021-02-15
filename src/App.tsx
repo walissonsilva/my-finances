@@ -1,17 +1,14 @@
 import React from 'react';
 
-import Dashboard from './pages/Dashboard';
+import Routes from './routes/app.routes';
 
-import GlobalStyles from './styles/GlobalStyles';
-import { ThemeProvider } from 'styled-components';
-import darkTheme from './styles/themes/dark';
+import AppThemeProvider from './hooks/Theme';
 
 function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
-      <GlobalStyles />
-      <Dashboard />
-    </ThemeProvider>
+    <AppThemeProvider>
+      <Routes />
+    </AppThemeProvider>
   );
 }
 

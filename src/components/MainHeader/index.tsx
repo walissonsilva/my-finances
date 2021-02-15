@@ -12,7 +12,11 @@ import {
   ToggleContainer
 } from './styles';
 
+import { useTheme } from '../../hooks/Theme';
+
 const MainHeader: React.FC = () => {
+  const { isDark, setIsDark } = useTheme();
+
   return (
     <Container>
       <Welcome>
@@ -23,12 +27,12 @@ const MainHeader: React.FC = () => {
       </Welcome>
 
       <ToggleContainer>
-        <AiOutlineBulb size={20} />
+        <AiOutlineBulb size={20} color={'#bfbfbf'} />
         <Toggle
-          onChange={() => {}}
-          checked={false}
+          onChange={setIsDark}
+          checked={!isDark}
           />
-        <AiFillBulb size={20} />
+        <AiFillBulb size={20} color={'#f7931b'} />
       </ToggleContainer>
     </Container>
   )

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   grid-area: MainHeader;
-  background-color: ${props => props.theme.colors.primary};
+  background-color: ${props => props.theme.colors.tertiary};
   color: ${props => props.theme.colors.white};
 
   width: 100%;
@@ -20,11 +20,12 @@ export const Welcome = styled.div`
 export const Title = styled.h2`
   display: inline;
   font-size: 22px;
+  font-weight: 500;
 `;
 
 export const Username = styled.span`
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 500;
 `;
 
 export const Subtitle = styled.div`
