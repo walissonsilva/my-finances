@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  BrowserRouter
+} from 'react-router-dom';
 
 import Dashboard from '../pages/Dashboard';
 
@@ -13,10 +16,12 @@ const Routes: React.FC = () => {
   const { isDark } = useTheme();
 
   return (
-    <ThemeProvider theme={ isDark ? darkTheme : lightTheme }>
-      <GlobalStyles />
-      <Dashboard />
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={ isDark ? darkTheme : lightTheme }>
+        <GlobalStyles />
+        <Dashboard />
+      </ThemeProvider>
+    </BrowserRouter>
   )
 }
 

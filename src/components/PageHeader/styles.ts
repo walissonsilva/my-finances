@@ -20,7 +20,9 @@ export const Title = styled.h1`
 `;
 
 export const SelectContainer = styled.div`
-  & > select:first-child {
+  display: flex;
+
+  & > *:first-child {
     margin-right: 10px;
   }
 `;
