@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 interface IThemeProps {
   isDark: boolean,
@@ -8,7 +8,15 @@ interface IThemeProps {
 const ThemeContext = createContext<IThemeProps>({} as IThemeProps);
 
 const AppThemeProvider: React.FC = ({ children }) => {
-  const [isDark, setIsDark] = useState(true);
+  const theme = localStorage.getItem('@my-finances:theme');
+
+  const [isDark, setIsDark] = useState(theme === 'dark' ? true : false);
+
+  useEffect(() => {
+    localStorage.setItem(
+      '@my-finances:theme', isDark ? 'dark' : 'light'
+    );
+  }, [isDark]);
 
   return (
     <ThemeContext.Provider value={{
