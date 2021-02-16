@@ -1,4 +1,6 @@
 import React from 'react';
+import CountUp from 'react-countup';
+
 import Card from '..';
 
 import {
@@ -32,15 +34,25 @@ const IconCard: React.FC<IIconCardProps> = ({
       <Container>
         <TitleAmount>
           <Title>{ title }</Title>
-          <Amount>R$ { amount }</Amount>
+          <Amount>
+            <CountUp
+              start={0}
+              end={amount}
+              duration={1}
+              decimals={2}
+              decimal=","
+              prefix={'R$ '}
+              separator=" "
+            />
+          </Amount>
         </TitleAmount>
+
+        {icon && <Icon src={icon} alt={title} />}
 
         <UpdatedInfo>
           { last_updated_date && `Última atualização em ${last_updated_date}, às ${last_updated_time}`}
           { !last_updated_date && 'Atualizado com base nas receitas e despesas' }
         </UpdatedInfo>
-        
-        {icon && <Icon src={icon} alt={title} />}
       </Container>
     </Card>
   )
