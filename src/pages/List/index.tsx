@@ -1,16 +1,22 @@
+import { stringify } from 'querystring';
 import React from 'react';
 
 import Layout from '../../components/Layout';
+import PageHeader from '../../components/PageHeader';
 
 import {
   Container
 } from './styles';
 
-const List = () => {
+interface IRouteParams {
+  match: { params: { type: string } };
+}
+
+const List: React.FC<IRouteParams> = ({ match }) => {
   return (
     <Layout>
       <Container>
-        <h1>List</h1>
+        <PageHeader title={ match.params.type === 'income' ? 'Receitas' : 'Despesas' } />
       </Container>
     </Layout>
   )

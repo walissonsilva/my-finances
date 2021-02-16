@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Routes from './routes/app.routes';
+import Routes from './routes';
 
 import AppThemeProvider from './hooks/Theme';
 

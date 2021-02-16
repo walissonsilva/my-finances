@@ -33,14 +33,14 @@ const Aside: React.FC = () => {
           <ItemText>Dashboard</ItemText>
         </MenuItemLink>
 
-        <MenuItemLink href="/">
-          <MdArrowDownward size={26} />
-          <ItemText>Despesas</ItemText>
-        </MenuItemLink>
-
-        <MenuItemLink href="/">
+        <MenuItemLink href="/list/income">
           <MdArrowUpward size={26} />
           <ItemText>Receitas</ItemText>
+        </MenuItemLink>
+
+        <MenuItemLink href="/list/outcome">
+          <MdArrowDownward size={26} />
+          <ItemText>Despesas</ItemText>
         </MenuItemLink>
 
         <MenuItemLink href="/">

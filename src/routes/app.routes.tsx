@@ -1,9 +1,12 @@
 import React from 'react';
 import {
-  BrowserRouter
+  BrowserRouter as Router,
+  Switch,
+  Route
 } from 'react-router-dom';
 
 import Dashboard from '../pages/Dashboard';
+import List from '../pages/List';
 
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../styles/GlobalStyles';
@@ -16,12 +19,15 @@ const Routes: React.FC = () => {
   const { isDark } = useTheme();
 
   return (
-    <BrowserRouter>
+    <Router>
       <ThemeProvider theme={ isDark ? darkTheme : lightTheme }>
         <GlobalStyles />
-        <Dashboard />
+        <Switch>
+          <Route path='/list/:type' component={List} />
+          <Route path='/' component={Dashboard} exact/>
+        </Switch>
       </ThemeProvider>
-    </BrowserRouter>
+    </Router>
   )
 }
 
