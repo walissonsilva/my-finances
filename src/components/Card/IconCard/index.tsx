@@ -42,7 +42,7 @@ const IconCard: React.FC<IIconCardProps> = ({
               decimals={2}
               decimal=","
               prefix={'R$ '}
-              separator=" "
+              separator="."
             />
           </Amount>
         </TitleAmount>

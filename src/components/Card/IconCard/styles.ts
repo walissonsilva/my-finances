@@ -20,7 +20,7 @@ export const Title = styled.h4`
 `;
 
 export const Amount = styled.p`
-  font-size: 36px;
+  font-size: 30px;
 `;
 
 export const UpdatedInfo = styled.span`

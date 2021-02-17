@@ -1,6 +1,8 @@
 import React from 'react';
 
-import SelectInput, { IOption } from '../SelectInput';
+import SelectInput from '../SelectInput';
+
+import { useSelectMonthYear } from '../../hooks/SelectMonthYear';
 
 import {
   Container,
@@ -13,27 +15,14 @@ interface IPageHeaderProps {
 }
 
 const PageHeader: React.FC<IPageHeaderProps> = ({ title }) => {
-  const options: IOption[] = [
-    {
-      label: 'Janeiro',
-      value: 'Janeiro'
-    },
-    {
-      label: 'Fevereiro',
-      value: 'Fevereiro'
-    },
-  ];
-
-  const optionsYear: IOption[] = [
-    {
-      label: '2021',
-      value: '2021'
-    },
-    {
-      label: '2020',
-      value: '2020'
-    },
-  ];
+  const {
+    yearOptions,
+    monthOptions,
+    handleYearChange,
+    handleMonthChange,
+    monthSelected,
+    yearSelected,
+  } = useSelectMonthYear();
 
   return (
     <Container>
@@ -43,13 +32,17 @@ const PageHeader: React.FC<IPageHeaderProps> = ({ title }) => {
         <SelectInput
           label={'Mês'}
           name={'month'}
-          options={options}
+          value={monthSelected}
+          options={monthOptions}
+          handleChange={handleMonthChange}
         />
 
         <SelectInput
           label={'Ano'}
-          name={'month'}
-          options={optionsYear}
+          name={'year'}
+          value={yearSelected}
+          options={yearOptions}
+          handleChange={handleYearChange}
         />
       </SelectContainer>
     </Container>
